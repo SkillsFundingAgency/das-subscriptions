@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Esfa.Recruit.Subscriptions.Web.Extensions
 {
+    // TODO: This is also defined in the Recruit.Shared.Web project
     public static class MvcOptionsExtensions
     {
         public static void AddTrimModelBinderProvider(this MvcOptions option, ILoggerFactory loggerFactory)

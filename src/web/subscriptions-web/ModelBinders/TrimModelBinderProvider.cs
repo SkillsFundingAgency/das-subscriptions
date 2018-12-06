@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Esfa.Recruit.Subscriptions.Web.ModelBinders
 {
+    // TODO: This is also defined in the Recruit.Shared.Web project
     public class TrimModelBinderProvider : IModelBinderProvider
     {
         private readonly ILoggerFactory _loggerFactory;

@@ -10,7 +10,6 @@ namespace Esfa.Recruit.Subscriptions.Web.Configuration
         {
             //Configuration
             services.Configure<ExternalLinksConfiguration>(configuration.GetSection("ExternalLinks"));
-
             services.Configure<GoogleAnalyticsConfiguration>(configuration.GetSection("GoogleAnalytics"));
             services.Configure<PostcodeAnywhereConfiguration>(configuration.GetSection("PostcodeAnywhere"));
 
@@ -23,12 +22,10 @@ namespace Esfa.Recruit.Subscriptions.Web.Configuration
 
         private static void RegisterServiceDeps(IServiceCollection services, IConfiguration configuration)
         {
-
         }
 
         private static void RegisterOrchestratorDeps(IServiceCollection services)
         {
-
         }
     }
 }

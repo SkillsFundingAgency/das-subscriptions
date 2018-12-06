@@ -1,5 +1,6 @@
 namespace Esfa.Recruit.Subscriptions.Web.Configuration
 {
+    // TODO: This is also defined in the Recruit.Shared.Web project.
     public static class EnvironmentNames
     {
         public const string Development = "DEVELOPMENT";

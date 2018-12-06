@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Esfa.Recruit.Subscriptions.Web.ModelBinders
 {
+    // TODO: This is also defined in the Recruit.Shared.Web project
     public class TrimModelBinder : IModelBinder
     {
         private readonly IModelBinder _fallbackBinder;
