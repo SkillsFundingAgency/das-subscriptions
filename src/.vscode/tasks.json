@@ -13,7 +13,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/subscriptions-web.sln",
+                "${workspaceFolder}/subscriptions.sln",
                 "/p:GenerateFullPaths=true"
             ],
             "problemMatcher": "$msCompile"
