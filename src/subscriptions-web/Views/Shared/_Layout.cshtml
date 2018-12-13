@@ -1,0 +1,39 @@
+﻿@functions
+{
+    public string GetTitle()
+    {
+        const string defaultTitle = "Subscriptions";
+        if (ViewBag.Title != null)
+            return $"{defaultTitle} | {ViewBag.Title}";
+
+        return defaultTitle;
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@GetTitle()</title>
+  
+    <environment exclude="@EnvironmentNames.GetTestEnvironmentNamesCommaDelimited()">
+        <partial name="@PartialNames.GoogleTagManagerHeadPartial" />
+    </environment>
+    @Html.Raw(JavaScriptSnippet.FullScript) <!-- AppInsights script -->
+    @await RenderSectionAsync(RazorSections.HeadJS, required: false)
+</head>
+<body>
+    <environment exclude="@EnvironmentNames.GetTestEnvironmentNamesCommaDelimited()">
+        <partial name="@PartialNames.GoogleTagManagerBodyPartial" />
+    </environment>
+
+    <header></header>
+  
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer></footer> 
+
+    @await RenderSectionAsync(RazorSections.FooterJS, required: false)
+</body>
+</html>
