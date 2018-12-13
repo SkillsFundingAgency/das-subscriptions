@@ -3,6 +3,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>recruit-subscriptions-web</UserSecretsId>
     <RootNamespace>Esfa.Recruit.Subscriptions.Web</RootNamespace>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -19,6 +20,7 @@
     <PackageReference Include="MediatR" Version="6.0.0"/>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0"/>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6.0.0"/>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.0.0.1-preview"/>
   </ItemGroup>
   <ItemGroup>
     <Content Update="nlog.config">

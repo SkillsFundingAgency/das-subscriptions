@@ -45,6 +45,14 @@ namespace Esfa.Recruit.Subscriptions.Web
 
             services.AddMvcService(_hostingEnvironment, _loggerFactory);
             services.AddApplicationInsightsTelemetry(_configuration);
+
+            services.Configure<SubscriptionsDataStoreDetails>(_configuration.GetSection("SubscriptionDatabaseDetails"));
+            services.PostConfigure<SubscriptionsDataStoreDetails>(options =>
+            {
+                options.ConnectionString = _configuration.GetConnectionString("SubscriptionsCosmosDb");
+            });
+
+            services.AddSingleton<DataStoreInitializer>();
         }
     }
 }
