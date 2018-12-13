@@ -1,4 +1,4 @@
-﻿using Esfa.Recruit.Employer.Web.ViewModels.Error;
+﻿using Esfa.Recruit.Subscriptions.Web.ViewModels.Error;
 using Esfa.Recruit.Subscriptions.Web.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;

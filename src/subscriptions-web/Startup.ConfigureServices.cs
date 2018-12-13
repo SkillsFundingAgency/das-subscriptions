@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Esfa.Recruit.Subscriptions.Web.Configuration;
+using AutoMapper;
+using MediatR;
 
 namespace Esfa.Recruit.Subscriptions.Web
 {
@@ -30,6 +32,16 @@ namespace Esfa.Recruit.Subscriptions.Web
             {
                 opt.AppendTrailingSlash = true;
             });
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddMediatR(typeof(Startup));
+            // services.AddScoped(
+            //     typeof(IPipelineBehavior<,>), 
+            //     typeof(TransactionBehavior<,>));
+            // services.AddScoped(
+            //     typeof(IPipelineBehavior<,>), 
+            //     typeof(LoggingBehavior<,>));
 
             services.AddMvcService(_hostingEnvironment, _loggerFactory);
             services.AddApplicationInsightsTelemetry(_configuration);

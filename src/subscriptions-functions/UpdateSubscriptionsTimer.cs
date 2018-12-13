@@ -14,7 +14,7 @@ namespace Esfa.Recruit.Subscriptions.Functions
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             
-            string[] temp = new string[] {"{}", "{}", "{}"};
+            string[] temp = new string[] {" { 'name': 'lee' }", "{ 'name': 'bob' }", "{ 'name': 'jim' }"};
 
             foreach(var item in temp)
             {

@@ -1,0 +1,30 @@
+﻿@functions
+{
+    public string GetTitle()
+    {
+        const string defaultTitle = "Subscriptions";
+        if (ViewBag.Title != null)
+            return $"{defaultTitle} | {ViewBag.Title}";
+
+        return defaultTitle;
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@GetTitle()</title>
+  
+</head>
+<body>
+
+    <header></header>
+  
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer></footer> 
+
+</body>
+</html>
