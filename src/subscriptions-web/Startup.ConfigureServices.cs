@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Esfa.Recruit.Subscriptions.Web.Configuration;
 using AutoMapper;
 using MediatR;
+using Esfa.Recruit.Subscriptions.Web.Infrastructure;
 
 namespace Esfa.Recruit.Subscriptions.Web
 {
@@ -53,6 +54,7 @@ namespace Esfa.Recruit.Subscriptions.Web
             });
 
             services.AddSingleton<DataStoreInitializer>();
+            services.AddScoped<CosmosSubscriptionRepository>();
         }
     }
 }

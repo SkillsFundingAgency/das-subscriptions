@@ -1,10 +1,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Esfa.Recruit.Subscriptions.Web.Infrastructure;
 using Esfa.Recruit.Subscriptions.Web.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
 namespace Esfa.Recruit.Subscriptions.Web.Pages.Subscriptions
 {
@@ -19,41 +21,42 @@ namespace Esfa.Recruit.Subscriptions.Web.Pages.Subscriptions
 
         public async Task<IActionResult> OnPostAsync()
         {
-            await _mediator.Send(new Command());
+            await _mediator.Send(Data);
 
             return RedirectToPage("/Create");
         }
 
-        public class Command : IRequest<int>
+        public class Command : IRequest
         {
-            [IgnoreMap]
-            public int Number { get; set; }
             public string Name { get; set; }
         }
 
         public class MappingProfile : Profile
         {
             public MappingProfile() =>
-                CreateMap<Command, Course>(MemberList.Source)
-                    .ForSourceMember(c => c.Number, opt => opt.DoNotValidate());
+                CreateMap<Command, Subscription>();
         }
 
-
-        public class Handler : IRequestHandler<Command, int>
+        public class Handler : AsyncRequestHandler<Command>
         {
             private readonly IMapper _mapper;
+            private readonly CosmosSubscriptionRepository _repository;
+            private readonly ILogger<Handler> _logger;
 
-            public Handler(IMapper mapper)
+            public Handler(ILogger<Handler> logger, IMapper mapper, CosmosSubscriptionRepository repository)
             {
                 _mapper = mapper;
+                _repository = repository;
+                _logger = logger;
             }
 
-            public Task<int> Handle(Command message, CancellationToken token)
+            protected override async Task Handle(Command message, CancellationToken token)
             {
-                var course = _mapper.Map<Command, Course>(message);
-                course.Id = message.Number;
+                var subscription = _mapper.Map<Command, Subscription>(message);
 
-                return Task.FromResult(course.Id);
+                await _repository.Create(subscription);
+
+                _logger.LogDebug("Created Subscription for {subscriptionName}", message.Name);
             }
         }
     }
