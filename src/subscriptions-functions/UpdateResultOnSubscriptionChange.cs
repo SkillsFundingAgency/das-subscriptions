@@ -4,20 +4,18 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using NLog;
 using NLog.Config;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace Esfa.Recruit.Subscriptions.Functions
-{ 
+{
     public static class UpdateResultOnSubscriptionChange
     {
         private static NLog.ILogger Logger;
 
         static UpdateResultOnSubscriptionChange()
         {
-            var directory = Directory.GetCurrentDirectory();
             LogManager.Configuration = new XmlLoggingConfiguration("nlog.config");
             Logger = LogManager.GetCurrentClassLogger();
         }
@@ -40,26 +38,9 @@ namespace Esfa.Recruit.Subscriptions.Functions
 
                 foreach (var change in input)
                 {
-                    output.Add(new SubscriptionChange(change.Id));
+                    output.Add(new SubscriptionItem(change.Id));
                 }
             }
-        }
-    }
-
-    public class SubscriptionChange
-    {
-        public SubscriptionChange(string id) => Id = id;
-
-        public string Id { get; set; }
-
-        public override string ToString()
-        {
-            return JsonConvert.SerializeObject(this);
-        }
-
-        public static implicit operator string(SubscriptionChange obj)
-        {
-            return obj.ToString();
         }
     }
 }
