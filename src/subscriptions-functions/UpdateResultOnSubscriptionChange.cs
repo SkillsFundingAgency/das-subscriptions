@@ -1,19 +1,32 @@
 using System.Collections.Generic;
+using System.IO;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using NLog;
+using NLog.Config;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace Esfa.Recruit.Subscriptions.Functions
-{
+{ 
     public static class UpdateResultOnSubscriptionChange
     {
+        private static NLog.ILogger Logger;
+
+        static UpdateResultOnSubscriptionChange()
+        {
+            var directory = Directory.GetCurrentDirectory();
+            LogManager.Configuration = new XmlLoggingConfiguration("nlog.config");
+            Logger = LogManager.GetCurrentClassLogger();
+        }
+
         [FunctionName("UpdateResultOnSubscriptionChange")]
         [ return: Queue("subscriptions", Connection = "AzureWebJobsStorage")]
         public static void Run([CosmosDBTrigger(
             databaseName: "recruit-subscriptions",
-            collectionName: "subscriptions",
+            collectionName: "das-subscriptions",
             ConnectionStringSetting = "lee-cosmos_DOCUMENTDB",
             LeaseCollectionName = "leases")]IReadOnlyList<Document> input, ILogger log,
             [Queue("subscriptions", Connection = "AzureWebJobsStorage")]ICollector<string> output)
