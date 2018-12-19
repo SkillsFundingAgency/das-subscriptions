@@ -24,7 +24,7 @@ namespace Esfa.Recruit.Subscriptions.Web.Infrastructure
 
         public async Task Create(Subscription subscription)
         {
-            subscription.Id = (new Guid("a3bd8a9f-09b3-45f1-9c24-86839505b982")).ToString();
+            subscription.Id = Guid.NewGuid().ToString();
             var response = await _cosmosClient.Databases[_databaseName].Containers[_collectionName].Items.CreateItemAsync<Subscription>(subscription.Id, subscription);
 
             if (response.StatusCode != HttpStatusCode.Created)
