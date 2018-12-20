@@ -1,26 +1,23 @@
-@page
+@page "/"
 @model Esfa.Recruit.Subscriptions.Web.Pages.Subscriptions.Create
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
-
-<h4>Course</h4>
+<h2>Create Subscription</h2>
 <hr />
 
 <p>
-    Enter your subscription name.
+    Enter the subscription name:
 </p>
-<div asp-validation-summary="All"></div>
 <form method="POST">
     <div>Name: <input asp-for="Data.Name" /></div>
-    <input type="submit" />
+    <div>
+        <input type="submit" />
+    </div>
 </form>
 
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+
 
