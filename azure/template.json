@@ -108,6 +108,11 @@
                                 "name": "Redis",
                                 "connectionString": "[parameters('loggingRedisConnectionString')]",
                                 "type": "Custom"
+                            },
+                            {
+                                "name": "SubscriptionsCosmosDb",
+                                "connectionString": "[concat('mongodb://', parameters('cosmosDbName'), ':', reference(parameters('cosmosDbName')).outputs.PrimaryMasterKey.value,'@', parameters('cosmosDbName'), '.documents.azure.com:10255/?ssl=true&replicaSet=globaldb')]",
+                                "type": "Custom"
                             }
                         ]
                     },
