@@ -50,6 +50,10 @@
         "loggingRedisConnectionString": {
             "type": "securestring",
             "defaultValue": ""
+        },
+        "environmentName": {
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {},
@@ -99,6 +103,10 @@
                             {
                                 "name": "GoogleMapsPrivateKey",
                                 "value": "[parameters('googleMapsPrivateKey')]"
+                            },
+                            {
+                                "name": "ASPNETCORE_ENVIRONMENT",
+                                "value": "[parameters('environmentName')]"
                             }
                         ]
                     },
