@@ -111,7 +111,7 @@
                             },
                             {
                                 "name": "SubscriptionsCosmosDb",
-                                "connectionString": "[concat('mongodb://', parameters('cosmosDbName'), ':', reference('CosmosDB').outputs.PrimaryMasterKey.value,'@', parameters('cosmosDbName'), '.documents.azure.com:10255/?ssl=true&replicaSet=globaldb')]",
+                                "connectionString": "[concat('AccountEndpoint=https://', parameters('cosmosDbName'), '.documents.azure.com:443/;AccountKey=', reference('CosmosDB').outputs.PrimaryMasterKey.value, ';')]",
                                 "type": "Custom"
                             }
                         ]
