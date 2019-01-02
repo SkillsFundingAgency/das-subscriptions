@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "subscriptions-api", "subscriptions-api\subscriptions-api.csproj", "{CF4B4FFF-4C4F-4060-9148-BC7C889AB13D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{7C1A419E-4871-4B95-ACEA-0B11876907D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF4B4FFF-4C4F-4060-9148-BC7C889AB13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4B4FFF-4C4F-4060-9148-BC7C889AB13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4B4FFF-4C4F-4060-9148-BC7C889AB13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4B4FFF-4C4F-4060-9148-BC7C889AB13D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1A419E-4871-4B95-ACEA-0B11876907D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1A419E-4871-4B95-ACEA-0B11876907D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1A419E-4871-4B95-ACEA-0B11876907D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1A419E-4871-4B95-ACEA-0B11876907D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4799B26-D176-4BA8-A291-BEF95927A5E1}
+	EndGlobalSection
+EndGlobal

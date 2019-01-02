@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "subscriptions-web", "subscriptions-web\subscriptions-web.csproj", "{A6183F60-B1BB-4B7B-9DAC-729AB09EB31A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "subscriptions-web", "subscriptions-web\subscriptions-web.csproj", "{A6183F60-B1BB-4B7B-9DAC-729AB09EB31A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "subscriptions-functions", "subscriptions-functions\subscriptions-functions.csproj", "{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A6183F60-B1BB-4B7B-9DAC-729AB09EB31A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +29,23 @@ Global
 		{A6183F60-B1BB-4B7B-9DAC-729AB09EB31A}.Release|x64.Build.0 = Release|Any CPU
 		{A6183F60-B1BB-4B7B-9DAC-729AB09EB31A}.Release|x86.ActiveCfg = Release|Any CPU
 		{A6183F60-B1BB-4B7B-9DAC-729AB09EB31A}.Release|x86.Build.0 = Release|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Debug|x64.Build.0 = Debug|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Debug|x86.Build.0 = Debug|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Release|x64.ActiveCfg = Release|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Release|x64.Build.0 = Release|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Release|x86.ActiveCfg = Release|Any CPU
+		{C46866A5-1DE1-4F83-BC0C-BC242CDA4435}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E2F4EA9-B6FF-4D76-B335-6DDC947369A6}
 	EndGlobalSection
 EndGlobal
