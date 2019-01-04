@@ -54,7 +54,7 @@ namespace Esfa.Recruit.Subscriptions.Web
 
         private async Task CreateContainer()
         {
-            _container = await _database.Containers.CreateContainerIfNotExistsAsync(_storeConfig.CollectionName, "/Name");
+            _container = await _database.Containers.CreateContainerIfNotExistsAsync(_storeConfig.CollectionName, "/id");
         }
     }
 }

@@ -24,9 +24,10 @@ namespace Esfa.Recruit.Subscriptions.Functions
         [ return: Queue("subscriptions", Connection = "AzureWebJobsStorage")]
         public static void Run([CosmosDBTrigger(
             databaseName: "recruit-subscriptions",
-            collectionName: "das-subscriptions",
+            collectionName: "subscriptions",
             ConnectionStringSetting = "lee-cosmos_DOCUMENTDB",
-            LeaseCollectionName = "leases")]IReadOnlyList<Document> input, ILogger log,
+            LeaseCollectionName = "leases",
+            CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> input, ILogger log,
             [Queue("subscriptions", Connection = "AzureWebJobsStorage")]ICollector<string> output)
         {
             if (input != null && input.Count > 0)
