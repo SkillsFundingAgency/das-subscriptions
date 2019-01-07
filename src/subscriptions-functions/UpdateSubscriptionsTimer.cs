@@ -28,8 +28,8 @@ namespace Esfa.Recruit.Subscriptions.Functions
             [TimerTrigger("0 0 */2 * * *", RunOnStartup = true)]TimerInfo myTimer,
             [CosmosDB(
                 databaseName: "recruit-subscriptions",
-                collectionName: "das-subscriptions",
-                ConnectionStringSetting = "lee-cosmos_DOCUMENTDB",
+                collectionName: "subscriptions",
+                ConnectionStringSetting = "SubscriptionsCosmosAccount",
                 SqlQuery = "SELECT * FROM c")]
                 IEnumerable<SubscriptionItem> subscriptions,
             ILogger log,

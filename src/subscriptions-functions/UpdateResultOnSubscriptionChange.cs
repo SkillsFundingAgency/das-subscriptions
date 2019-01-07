@@ -21,11 +21,11 @@ namespace Esfa.Recruit.Subscriptions.Functions
         }
 
         [FunctionName("UpdateResultOnSubscriptionChange")]
-        [ return: Queue("subscriptions", Connection = "AzureWebJobsStorage")]
+        [return: Queue("subscriptions", Connection = "AzureWebJobsStorage")]
         public static void Run([CosmosDBTrigger(
             databaseName: "recruit-subscriptions",
             collectionName: "subscriptions",
-            ConnectionStringSetting = "lee-cosmos_DOCUMENTDB",
+            ConnectionStringSetting = "SubscriptionsCosmosAccount",
             LeaseCollectionName = "leases",
             CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> input, ILogger log,
             [Queue("subscriptions", Connection = "AzureWebJobsStorage")]ICollector<string> output)
