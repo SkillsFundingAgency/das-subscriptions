@@ -33,6 +33,8 @@ namespace Esfa.Recruit.Subscriptions.Functions
 
             var value = JsonConvert.DeserializeObject<SubscriptionItem>(myQueueItem);
 
+            Logger.Debug("Generating Subscription Result for {subscriptionId}", value.Id);
+
             var result = new ResultView();
             result.PartitionKey = "search-results";
             result.RowKey = value.Id;

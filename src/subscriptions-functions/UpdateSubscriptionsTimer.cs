@@ -28,15 +28,15 @@ namespace Esfa.Recruit.Subscriptions.Functions
             [TimerTrigger("0 0 */2 * * *", RunOnStartup = true)]TimerInfo myTimer,
             [CosmosDB(
                 databaseName: "recruit-subscriptions",
-                collectionName: "das-subscriptions",
-                ConnectionStringSetting = "lee-cosmos_DOCUMENTDB",
+                collectionName: "subscriptions",
+                ConnectionStringSetting = "SubscriptionsCosmosAccount",
                 SqlQuery = "SELECT * FROM c")]
                 IEnumerable<SubscriptionItem> subscriptions,
             ILogger log,
             [Queue("subscriptions", Connection = "AzureWebJobsStorage")]ICollector<string> output)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            Logger.Debug("We have triggered the trigger");
+            Logger.Debug("Re-generating all the Subscription results");
             
             var subscriptionItems = subscriptions.ToList();
 
