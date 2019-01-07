@@ -29,7 +29,7 @@ namespace Esfa.Recruit.Subscriptions.Functions
             [CosmosDB(
                 databaseName: "recruit-subscriptions",
                 collectionName: "subscriptions",
-                ConnectionStringSetting = "SubscriptionsCosmosAccount",
+                ConnectionStringSetting = "SubscriptionsCosmosDb",
                 SqlQuery = "SELECT * FROM c")]
                 IEnumerable<SubscriptionItem> subscriptions,
             ILogger log,
