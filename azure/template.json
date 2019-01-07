@@ -197,13 +197,11 @@
                             },
                             {
                                 "name": "Redis",
-                                "connectionString": "[parameters('loggingRedisConnectionString')]",
-                                "type": "Custom"
+                                "value": "[parameters('loggingRedisConnectionString')]"
                             },
                             {
                                 "name": "SubscriptionsCosmosDb",
-                                "connectionString": "[concat('AccountEndpoint=https://', parameters('cosmosDbName'), '.documents.azure.com:443/;AccountKey=', reference('CosmosDB').outputs.PrimaryMasterKey.value, ';')]",
-                                "type": "Custom"
+                                "value": "[concat('AccountEndpoint=https://', parameters('cosmosDbName'), '.documents.azure.com:443/;AccountKey=', reference('CosmosDB').outputs.PrimaryMasterKey.value, ';')]"
                             }                            
                         ]
                     }
