@@ -202,7 +202,11 @@
                             {
                                 "name": "SubscriptionsCosmosDb",
                                 "value": "[concat('AccountEndpoint=https://', parameters('cosmosDbName'), '.documents.azure.com:443/;AccountKey=', reference('CosmosDB').outputs.PrimaryMasterKey.value, ';')]"
-                            }                            
+                            },
+                            {
+                                "name": "ASPNETCORE_ENVIRONMENT",
+                                "value": "[parameters('environmentName')]"
+                            }
                         ]
                     }
                 }
