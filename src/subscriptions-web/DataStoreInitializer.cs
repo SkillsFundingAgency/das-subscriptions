@@ -49,7 +49,7 @@ namespace Esfa.Recruit.Subscriptions.Web
 
         private async Task CreateDatabase()
         {
-            _database = await _cosmosClient.Databases.CreateDatabaseIfNotExistsAsync(_storeConfig.DatabaseName, _storeConfig.DatabaseThroughput);
+            _database = await _cosmosClient.Databases.CreateDatabaseIfNotExistsAsync(_storeConfig.DatabaseName);
         }
 
         private async Task CreateContainer()
