@@ -36,7 +36,7 @@ namespace Esfa.Recruit.Subscriptions.Functions
             [Queue("subscriptions", Connection = "AzureWebJobsStorage")]ICollector<string> output)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            Logger.Debug("We have triggered the trigger");
+            Logger.Debug("Re-generating all the Subscription results");
             
             var subscriptionItems = subscriptions.ToList();
 

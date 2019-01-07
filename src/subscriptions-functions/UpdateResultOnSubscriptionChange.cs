@@ -33,12 +33,15 @@ namespace Esfa.Recruit.Subscriptions.Functions
             if (input != null && input.Count > 0)
             {
                 log.LogInformation("Documents modified " + input.Count);
+                Logger.Debug("Documents modified {count}", input.Count);
+                
                 log.LogInformation("First document Id " + input[0].Id);
 
                 //var myItem = JsonConvert.DeserializeObject<MyItem>(input[0].ToString());
 
                 foreach (var change in input)
                 {
+                    Logger.Debug("Adding change to queue for subscription id {subscriptionId}", change.Id);
                     output.Add(new SubscriptionItem(change.Id));
                 }
             }
