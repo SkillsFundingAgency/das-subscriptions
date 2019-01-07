@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
@@ -12,14 +13,6 @@ namespace Esfa.Recruit.Subscriptions.Functions
 {
     public static class UpdateResultOnSubscriptionChange
     {
-        private static NLog.ILogger Logger;
-
-        static UpdateResultOnSubscriptionChange()
-        {
-            LogManager.Configuration = new XmlLoggingConfiguration("nlog.config");
-            Logger = LogManager.GetCurrentClassLogger();
-        }
-
         [FunctionName("UpdateResultOnSubscriptionChange")]
         [return: Queue("subscriptions", Connection = "AzureWebJobsStorage")]
         public static void Run([CosmosDBTrigger(
@@ -28,12 +21,15 @@ namespace Esfa.Recruit.Subscriptions.Functions
             ConnectionStringSetting = "SubscriptionsCosmosDb",
             LeaseCollectionName = "leases",
             CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> input, ILogger log,
-            [Queue("subscriptions", Connection = "AzureWebJobsStorage")]ICollector<string> output)
+            [Queue("subscriptions", Connection = "AzureWebJobsStorage")]ICollector<string> output,
+            ExecutionContext context)
         {
+            var logger = CreateLogger(context);
+
             if (input != null && input.Count > 0)
             {
                 log.LogInformation("Documents modified " + input.Count);
-                Logger.Debug("Documents modified {count}", input.Count);
+                logger.Debug("Documents modified {count}", input.Count);
                 
                 log.LogInformation("First document Id " + input[0].Id);
 
@@ -41,10 +37,16 @@ namespace Esfa.Recruit.Subscriptions.Functions
 
                 foreach (var change in input)
                 {
-                    Logger.Debug("Adding change to queue for subscription id {subscriptionId}", change.Id);
+                    logger.Debug("Adding change to queue for subscription id {subscriptionId}", change.Id);
                     output.Add(new SubscriptionItem(change.Id));
                 }
             }
+        }
+
+        private static NLog.ILogger CreateLogger(ExecutionContext context)
+        {
+            LogManager.Configuration = new XmlLoggingConfiguration(context.FunctionAppDirectory + "/nlog.config");
+            return  LogManager.GetCurrentClassLogger();
         }
     }
 }
