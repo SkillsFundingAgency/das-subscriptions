@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Esfa.Recruit.Subscriptions.Infrastructure;
 using Esfa.Recruit.Subscriptions.Web.Configuration;
 using AutoMapper;
 using MediatR;
-using Esfa.Recruit.Subscriptions.Web.Infrastructure;
 
 namespace Esfa.Recruit.Subscriptions.Web
 {

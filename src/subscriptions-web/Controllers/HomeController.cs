@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace subscriptions_web.Controllers
+namespace Esfa.Recruit.Subscriptions.Web.Controllers
 {
     // [Route("/")]
     public class HomeController : Controller

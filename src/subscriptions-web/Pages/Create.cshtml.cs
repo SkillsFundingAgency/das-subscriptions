@@ -1,8 +1,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using Esfa.Recruit.Subscriptions.Web.Infrastructure;
-using Esfa.Recruit.Subscriptions.Web.Models;
+using Esfa.Recruit.Subscriptions.Infrastructure;
+using Esfa.Recruit.Subscriptions.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

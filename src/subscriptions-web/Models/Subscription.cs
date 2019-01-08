@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace Esfa.Recruit.Subscriptions.Web.Models
+namespace Esfa.Recruit.Subscriptions.Models
 {
     public class Subscription
     {

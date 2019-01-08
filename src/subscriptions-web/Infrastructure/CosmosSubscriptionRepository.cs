@@ -2,11 +2,11 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using Esfa.Recruit.Subscriptions.Web.Configuration;
-using Esfa.Recruit.Subscriptions.Web.Models;
+using Esfa.Recruit.Subscriptions.Models;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Options;
 
-namespace Esfa.Recruit.Subscriptions.Web.Infrastructure
+namespace Esfa.Recruit.Subscriptions.Infrastructure
 {
     public class CosmosSubscriptionRepository : IDisposable
     {
