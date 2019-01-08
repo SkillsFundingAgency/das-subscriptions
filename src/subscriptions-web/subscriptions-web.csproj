@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <UserSecretsId>recruit-subscriptions-web</UserSecretsId>
     <RootNamespace>Esfa.Recruit.Subscriptions.Web</RootNamespace>
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>Esfa.Recruit.Subscriptions.Web</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
