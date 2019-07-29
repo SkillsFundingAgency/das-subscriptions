@@ -54,7 +54,11 @@
         "environmentName": {
             "type": "string",
             "defaultValue": ""
-        }
+        },
+        "cosmosDbIpRangeFilter": {
+            "type": "string",
+            "defaultValue": ""
+        } 
     },
     "variables": {},
     "resources": [
@@ -277,6 +281,9 @@
                     },
                     "defaultConsistencyLevel": {
                         "value": "Strong"
+                    },
+                    "ipRangeFilter": {
+                        "value": "[parameters('cosmosDbIpRangeFilter')]"
                     }
                 }
             }
